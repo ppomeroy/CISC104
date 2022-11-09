@@ -1,0 +1,40 @@
+Paul Pomeroy
+Intro to Game Programming - Project 1
+
+-- Introduction --
+The project is a simlulation of the Prisoner's Dilemma. More specifically, however, it is heavily based off its interpretation from the
+game "Zero Escape: Virtue's Last Reward" called the Ambidex Game. Like in the game, the simulation provides you with two choices: Ally
+or Betray. Picking one of these causes the "opponent" to randomly choose a choice, and the points are calculated as such. After any 
+number of rounds, the player can SHIFT into another timeline, one where the votes haven't happened yet.
+
+The rules for points are as follows:
+
+If both the player and opponent pick Ally:
+- Player gains 2 points
+- Opponent gains 2 points
+
+If the player picks Ally but the opponent picks Betray:
+- Player loses 2 points
+- Opponent gains 3 points
+
+If the player picks Betray but the opponent picks Ally:
+- Player gains 3 points
+- Opponent loses 2 points
+
+If both the player and opponent pick Betray:
+- Player gains 0 points
+- Opponent gains 0 points
+
+-- UI --
+In the top left corner you will find both your points and the opponent's points. Both start with 3 Bracelet Points, or BP. As stated,
+you gain or lose BP based on the votes cast by you and the opponent. In the top right corner, you will see both your vote and your
+opponent's vote. This updates every time the player casts a vote. Underneath the votes is a "Rules" box with a reminder for how points
+are calculated. Underneath this is the Round Number, which updates with each vote. To the left of it are the "Ally" and "Betray" buttons 
+to vote with, and to the right of it is the "SHIFT" button.
+
+-- Controls --
+Upon starting the game, there are three buttons. Those are the "Ally", "Betray", and "SHIFT" buttons.
+- Clicking the "Ally" button will set the player's vote for that round to Ally.
+- Clicking the "Betray" button will set the player's vote for that round to Betray.
+After the player casts their vote, the change in points will be calculated. 
+- Clicking the "SHIFT" button will reset the points, round number, and previous votes.
