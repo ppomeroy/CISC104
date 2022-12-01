@@ -2068,7 +2068,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1556829272}
         m_TargetAssemblyTypeName: CubeManager, GaneAssembly
         m_MethodName: SlidersChanged
-        m_Mode: 0
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
