@@ -7,6 +7,8 @@ using TMPro;
 public class CardManager : MonoBehaviour
 {
 
+    // These are here so that the game works
+
     public Card[] playerCards;
     public Card[] cpuCards;
 
@@ -40,23 +42,29 @@ public class CardManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Set card index for player and CPU to zero
         currentPlayerIndex = 0;
         currentCpuIndex = 0;
 
+        // Set points for player and CPU to zero
         playerPoints = 0;
         cpuPoints = 0;
 
+        // Set round number to zero
         roundNumber = 0;
 
+        // Assigns text to objects
         playerPointsText = playerPointsObject.GetComponent<TextMeshProUGUI>();
         cpuPointsText = cpuPointsObject.GetComponent<TextMeshProUGUI>();
         resultText = resultObject.GetComponent<TextMeshProUGUI>();
         roundText = roundObject.GetComponent<TextMeshProUGUI>();
         winText = winObject.GetComponent<TextMeshProUGUI>();
 
+        // Sets default images
         SetPlayerImg();
         SetCPUImg();
 
+        // Sets result and winner to null to leave empty text
         result = null;
         winner = null;
     }
@@ -64,6 +72,7 @@ public class CardManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Updates the text throughout the game
         playerPointsText.text = "Player Points: " + playerPoints;
         cpuPointsText.text = "CPU Points: " + cpuPoints;
         resultText.text = "Result: " + result;
@@ -71,8 +80,10 @@ public class CardManager : MonoBehaviour
         winText.text = "Winner: " + winner;
     }
 
+    // Draws a card
     public void Draw()
     {
+        // If within the 6 rounds, a card is drawn
         if (roundNumber < 6)
         {
             roundNumber++;
@@ -80,12 +91,14 @@ public class CardManager : MonoBehaviour
             GetCPUCard();
             Calculate();
         }
+        // If the last round, it determines the winner
         if (roundNumber == 6)
         {
             WhoWon();
         }
     }
 
+    // Draws a random player card
     public void GetPlayerCard()
     {
         currentPlayerIndex = Random.Range(1, 7);
@@ -96,10 +109,12 @@ public class CardManager : MonoBehaviour
         }
         else
         {
+            // Repeats if the random card has already been used
             GetPlayerCard();
         }
     }
 
+    // Draws a random CPU card
     public void GetCPUCard()
     {
         currentCpuIndex = Random.Range(1, 7);
@@ -110,10 +125,12 @@ public class CardManager : MonoBehaviour
         }
         else
         {
+            // Repeats if the random card has already been used
             GetCPUCard();
         }
     }
 
+    // Calculates who won the round
     public void Calculate()
     {
         int playerValue = playerCards[currentPlayerIndex].cardValue;
@@ -135,6 +152,7 @@ public class CardManager : MonoBehaviour
 
     }
 
+    // Determines who won the game
     public void WhoWon()
     {
         if (playerPoints > cpuPoints)
@@ -151,6 +169,7 @@ public class CardManager : MonoBehaviour
         }
     }
 
+    // Changes the image for the player card
     private void SetPlayerImg()
     {
         if (playerCards[currentPlayerIndex].cardPic != null)
@@ -163,6 +182,7 @@ public class CardManager : MonoBehaviour
         }
     }
 
+    // Changes the image for the CPU card
     private void SetCPUImg()
     {
         if (cpuCards[currentCpuIndex].cardPic != null)
@@ -175,6 +195,7 @@ public class CardManager : MonoBehaviour
         }
     }
 
+    // Resets the game
     public void Reset()
     {
         playerPoints = 0;
